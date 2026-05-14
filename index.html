@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Webpage</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:ital@0;1&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">&lt;MyPage /&gt;</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#links">Links</a></li>
+            <li><a href="#tech">Tech</a></li>
+            <li><a href="#js-section">JavaScript</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <h1>Hello, I'm <span>Learning Web Dev</span> 👋</h1>
+        <p>This is my Task-1 project for the ApexPlanet internship — built using HTML, CSS, and JavaScript.</p>
+    </header>
+
+    <main>
+
+        <!-- ABOUT -->
+        <section id="about" class="about-card">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                I'm an aspiring web developer currently doing my internship at
+                <strong>ApexPlanet Software Pvt Ltd</strong>. This page demonstrates
+                basic HTML structure, CSS styling, and JavaScript interactivity.
+            </p>
+            <p>
+                The goal of Task-1 is to understand how webpages are built from the ground up —
+                starting with semantic HTML, layering CSS for design, and finally
+                adding JavaScript to make things interactive.
+            </p>
+        </section>
+
+        <!-- IMAGE GALLERY -->
+        <section id="gallery">
+            <h2 class="section-title">Image Gallery</h2>
+            <div class="gallery">
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80"
+                        alt="Coding on laptop" />
+                    <figcaption>💻 Writing my first HTML</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&q=80"
+                        alt="Design on screen" />
+                    <figcaption>🎨 Styling with CSS</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80"
+                        alt="JavaScript code" />
+                    <figcaption>⚡ Adding JavaScript</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <!-- USEFUL LINKS -->
+        <section id="links">
+            <h2 class="section-title">Useful Links</h2>
+            <div class="links-grid">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">📄 MDN – HTML</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">🎨 MDN – CSS</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">⚡ MDN – JavaScript</a>
+                <a href="https://www.w3schools.com" target="_blank">🏫 W3Schools</a>
+                <a href="https://css-tricks.com" target="_blank">✨ CSS-Tricks</a>
+            </div>
+        </section>
+
+        <!-- TECH CARDS -->
+        <section id="tech">
+            <h2 class="section-title">Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="icon">🌐</div>
+                    <h3>HTML5</h3>
+                    <p>Structure and semantic elements of the webpage.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="icon">🎨</div>
+                    <h3>CSS3</h3>
+                    <p>Colors, fonts, layout (Flexbox &amp; Grid), and animations.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>DOM manipulation, event listeners, and interactivity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JAVASCRIPT INTERACTIONS -->
+        <section id="js-section">
+            <h2 class="section-title">JavaScript Interactions</h2>
+            <p>Click the buttons below to see JavaScript in action!</p>
+
+            <!-- Button 1: Alert -->
+            <button class="btn" id="alert-btn" onclick="showAlert()">🔔 Show Alert</button>
+
+            <!-- Button 2: Toggle message -->
+            <button class="btn" id="toggle-btn" onclick="toggleMessage()">💬 Toggle Message</button>
+
+            <!-- Output box -->
+            <div id="output-box">
+                👋 Hey there! JavaScript is working perfectly. DOM manipulation is fun!
+            </div>
+
+            <!-- Counter -->
+            <p style="margin-top:30px; margin-bottom:8px;">🔢 Interactive Counter</p>
+            <div class="counter-wrap">
+                <button class="btn-minus" onclick="changeCount(-1)">−</button>
+                <div class="count-display" id="count-display">0</div>
+                <button class="btn-plus" onclick="changeCount(1)">+</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Built with ❤️ for <span>ApexPlanet Software Pvt Ltd</span> Internship — Task 1</p>
+        <p style="margin-top:6px; opacity:.6;">HTML · CSS · JavaScript</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
