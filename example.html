@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Sonnet 4.6 — Namaste, India</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --saffron:#FF6B1A;
+  --saffron2:#FF9D4D;
+  --white:#FDFAF4;
+  --green:#138808;
+  --green2:#1db010;
+  --navy:#000080;
+  --deep:#0a0612;
+  --deep2:#100d1e;
+  --deep3:#1a1530;
+  --violet:#3d1f8a;
+  --violet2:#6b3fd4;
+  --gold:#f0c040;
+  --gold2:#fde68a;
+  --mid:rgba(253,250,244,0.55);
+  --dim:rgba(253,250,244,0.25);
+  --dimmer:rgba(253,250,244,0.1);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--deep);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ─── CURSOR ─────────────────────────── */
+#cur{position:fixed;width:14px;height:14px;border-radius:50%;background:var(--saffron);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;mix-blend-mode:screen}
+#cur-r{position:fixed;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,107,26,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .4s}
+
+/* ─── NAV ─────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:1.4rem 5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(to bottom,rgba(10,6,18,.85),transparent);
+  backdrop-filter:blur(0px);
+  animation:navDrop 1s ease both;
+}
+@keyframes navDrop{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+.nav-logo{
+  display:flex;align-items:center;gap:.75rem;text-decoration:none;
+}
+.nav-logo-mark{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--saffron),var(--violet2));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.1rem;color:#fff;
+  box-shadow:0 0 20px rgba(255,107,26,.35);
+  animation:logoPulse 4s ease-in-out infinite;
+}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 20px rgba(255,107,26,.35)}50%{box-shadow:0 0 40px rgba(255,107,26,.6),0 0 80px rgba(107,63,212,.2)}}
+.nav-logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:600;
+  color:var(--white);letter-spacing:.02em;
+}
+.nav-logo-text span{color:var(--saffron)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);text-decoration:none;
+  transition:color .3s;position:relative;
+}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--saffron);transition:width .3s}
+.nav-links a:hover{color:var(--saffron)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:.6rem 1.5rem;
+  background:linear-gradient(135deg,var(--saffron),#e85800);
+  color:#fff;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;
+  border:none;border-radius:6px;cursor:none;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(255,107,26,.3);
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,26,.5)}
+
+/* ─── HERO ─────────────────────────── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  background:var(--deep);
+}
+
+/* Mandala background */
+.mandala-wrap{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(900px,110vw);
+  opacity:.07;
+  animation:mandalaRot 120s linear infinite;
+  pointer-events:none;
+}
+@keyframes mandalaRot{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.mandala-wrap2{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(600px,80vw);
+  opacity:.05;
+  animation:mandalaRot 80s linear infinite reverse;
+  pointer-events:none;
+}
+
+/* Particle field */
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.p{
+  position:absolute;border-radius:50%;
+  animation:pFloat var(--pd,8s) ease-in-out infinite var(--pdel,0s);
+}
+@keyframes pFloat{
+  0%,100%{transform:translateY(0) scale(1);opacity:var(--po,.5)}
+  50%{transform:translateY(var(--py,-30px)) scale(1.3);opacity:calc(var(--po,.5)*1.5)}
+}
+
+/* Tricolor beam */
+.tribeam{
+  position:absolute;bottom:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--saffron) 33.33%,white 33.33% 66.66%,var(--green) 66.66%);
+  animation:beamGlow 3s ease-in-out infinite;
+}
+@keyframes beamGlow{0%,100%{opacity:.5;filter:blur(0px)}50%{opacity:1;filter:blur(2px) brightness(1.5)}}
+
+.hero-content{
+  position:relative;z-index:5;
+  text-align:center;
+  padding:0 2rem;
+}
+.hero-eyebrow{
+  font-family:'DM Sans',sans-serif;
+  font-size:.75rem;letter-spacing:.6em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:2rem;
+  animation:eyeIn 1s ease 0.5s both;
+}
+.hindi-headline{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(2rem,6vw,5rem);
+  color:var(--gold);line-height:1.1;
+  margin-bottom:1rem;
+  animation:eyeIn 1s ease 0.7s both;
+  text-shadow:0 0 60px rgba(240,192,64,.3);
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;
+  font-size:clamp(4rem,12vw,10rem);
+  line-height:.88;
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  animation:eyeIn 1s ease 0.9s both;
+}
+.hero-title .line1{
+  display:block;
+  background:linear-gradient(135deg,#fff 0%,rgba(253,250,244,.7) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-title .line2{
+  display:block;
+  background:linear-gradient(135deg,var(--saffron) 0%,var(--gold) 50%,var(--saffron2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 3s ease-in-out infinite;
+  background-size:200% auto;
+}
+@keyframes shimmer{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+.hero-version{
+  font-family:'DM Sans',sans-serif;
+  font-weight:200;font-style:italic;
+  font-size:clamp(.9rem,2vw,1.3rem);
+  color:var(--dim);letter-spacing:.1em;
+  margin-top:1rem;
+  animation:eyeIn 1s ease 1.1s both;
+}
+.hero-desc{
+  font-size:1.05rem;line-height:1.8;
+  color:var(--mid);max-width:580px;margin:2.5rem auto 0;
+  animation:eyeIn 1s ease 1.3s both;
+}
+@keyframes eyeIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-btns{
+  display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;
+  margin-top:3rem;
+  animation:eyeIn 1s ease 1.5s both;
+}
+.btn-primary{
+  padding:1rem 2.5rem;
+  background:linear-gradient(135deg,var(--saffron),#d44f00);
+  color:#fff;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;
+  border:none;border-radius:8px;cursor:none;
+  position:relative;overflow:hidden;
+  box-shadow:0 8px 30px rgba(255,107,26,.4);
+  transition:transform .3s,box-shadow .3s;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);
+  transform:translateX(-100%);transition:transform .5s;
+}
+.btn-primary:hover::before{transform:translateX(100%)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(255,107,26,.5)}
+.btn-secondary{
+  padding:1rem 2.5rem;
+  background:transparent;
+  color:var(--white);font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;
+  border:1px solid rgba(253,250,244,.2);border-radius:8px;cursor:none;
+  transition:border-color .3s,background .3s;
+}
+.btn-secondary:hover{border-color:var(--saffron);background:rgba(255,107,26,.08)}
+
+/* Floating stat cards */
+.hero-float-cards{
+  position:absolute;z-index:4;
+  width:100%;height:100%;top:0;left:0;pointer-events:none;
+}
+.fcard{
+  position:absolute;
+  background:rgba(26,21,48,.7);
+  border:1px solid rgba(240,192,64,.2);
+  border-radius:12px;
+  padding:1rem 1.5rem;
+  backdrop-filter:blur(10px);
+  animation:fCardFloat var(--fd,6s) ease-in-out infinite var(--fdel,0s);
+}
+@keyframes fCardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.fcard-num{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:2rem;
+  background:linear-gradient(135deg,var(--saffron),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.fcard-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.3rem}
+
+/* Scroll cue */
+.scroll-cue{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  animation:eyeIn 1s ease 2.5s both;
+}
+.scroll-cue-text{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dimmer)}
+.scroll-cue-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--saffron),transparent);animation:scPulse 2s ease-in-out infinite}
+@keyframes scPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ─── CAPABILITIES ─────────────────── */
+#capabilities{
+  padding:9rem 5rem;
+  background:var(--deep2);
+  position:relative;overflow:hidden;
+}
+.cap-bg-text{
+  position:absolute;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:clamp(12rem,25vw,22rem);
+  color:rgba(107,63,212,.04);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  white-space:nowrap;letter-spacing:-.05em;
+  pointer-events:none;
+  animation:bgTextDrift 15s ease-in-out infinite;
+}
+@keyframes bgTextDrift{0%,100%{transform:translate(-50%,-50%) translateX(0)}50%{transform:translate(-50%,-50%) translateX(30px)}}
+.sec-tag{font-size:.72rem;letter-spacing:.5em;text-transform:uppercase;color:var(--saffron);margin-bottom:1rem}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:clamp(3rem,7vw,6rem);
+  line-height:.9;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.sec-title .glow{
+  background:linear-gradient(90deg,var(--white),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.sec-intro{
+  font-size:1.05rem;color:var(--mid);line-height:1.8;max-width:500px;
+  margin-bottom:4rem;
+}
+
+.cap-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5px;
+  background:rgba(107,63,212,.12);
+}
+.cap-card{
+  background:var(--deep2);
+  padding:2.5rem;
+  position:relative;overflow:hidden;
+  transition:background .4s;
+  cursor:none;
+}
+.cap-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--saffron),transparent);
+  transform:scaleX(0);transition:transform .4s;
+}
+.cap-card:hover{background:rgba(26,21,48,.9)}
+.cap-card:hover::before{transform:scaleX(1)}
+.cap-icon{
+  width:52px;height:52px;
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.5rem;
+  font-size:1.5rem;
+  position:relative;
+}
+.cap-icon-ring{
+  position:absolute;inset:-4px;
+  border-radius:18px;
+  border:1px solid rgba(255,107,26,.2);
+  animation:iconRing 3s ease-in-out infinite;
+}
+@keyframes iconRing{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.1);opacity:.8}}
+.cap-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-size:1.5rem;
+  color:var(--white);margin-bottom:.75rem;
+}
+.cap-body{font-size:.9rem;line-height:1.8;color:var(--mid)}
+.cap-hindi{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:.85rem;color:var(--saffron);
+  margin-top:1rem;opacity:.7;
+}
+.cap-stat{
+  margin-top:1.5rem;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(253,250,244,.06);
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:700;
+  color:var(--gold);
+}
+.cap-stat-label{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+
+/* ─── INDIA USE CASES ─────────────────── */
+#usecases{
+  padding:9rem 5rem;
+  background:var(--deep);
+  position:relative;
+}
+.india-banner{
+  display:flex;align-items:center;gap:2rem;margin-bottom:5rem;
+  overflow:hidden;
+}
+.india-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,107,26,.3))}
+.india-flag-strip{
+  display:flex;height:6px;border-radius:3px;overflow:hidden;width:120px;
+  flex-shrink:0;box-shadow:0 0 20px rgba(255,107,26,.3);
+}
+.india-flag-strip div{flex:1}
+.flag-saffron{background:var(--saffron)}
+.flag-white{background:var(--white)}
+.flag-green{background:var(--green)}
+.india-line2{flex:1;height:1px;background:linear-gradient(90deg,rgba(19,136,8,.3),transparent)}
+
+.usecase-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;align-items:start;
+}
+.usecase-list{display:flex;flex-direction:column;gap:1rem}
+.uc-item{
+  padding:1.5rem 2rem;
+  border:1px solid rgba(253,250,244,.07);
+  border-radius:12px;
+  cursor:none;
+  transition:border-color .3s,background .3s,transform .3s;
+  position:relative;overflow:hidden;
+}
+.uc-item.active,.uc-item:hover{
+  border-color:rgba(255,107,26,.4);
+  background:rgba(255,107,26,.05);
+  transform:translateX(8px);
+}
+.uc-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--saffron);transform:scaleY(0);transition:transform .3s;
+  transform-origin:bottom;
+}
+.uc-item.active::before,.uc-item:hover::before{transform:scaleY(1)}
+.uc-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.85rem;color:var(--saffron);
+  margin-bottom:.4rem;letter-spacing:.2em;
+}
+.uc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-size:1.3rem;color:var(--white);
+  margin-bottom:.3rem;
+}
+.uc-sub{font-size:.85rem;color:var(--mid);line-height:1.6}
+
+.usecase-demo{
+  background:rgba(16,13,30,.8);
+  border:1px solid rgba(107,63,212,.25);
+  border-radius:16px;
+  padding:2rem;
+  min-height:520px;
+  position:sticky;top:100px;
+  overflow:hidden;
+}
+.demo-header{
+  display:flex;align-items:center;gap:.75rem;
+  margin-bottom:1.5rem;padding-bottom:1.5rem;
+  border-bottom:1px solid rgba(253,250,244,.06);
+}
+.demo-dot{width:8px;height:8px;border-radius:50%}
+.d1{background:var(--saffron)}
+.d2{background:var(--gold)}
+.d3{background:var(--green2)}
+.demo-title{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-left:auto}
+
+/* Chat bubbles */
+.chat-msgs{display:flex;flex-direction:column;gap:1rem}
+.chat-bubble{
+  padding:1rem 1.25rem;border-radius:12px;max-width:85%;
+  font-size:.9rem;line-height:1.7;
+  animation:bubbleIn .5s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes bubbleIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.cb-user{
+  align-self:flex-end;
+  background:linear-gradient(135deg,rgba(255,107,26,.25),rgba(255,107,26,.1));
+  border:1px solid rgba(255,107,26,.3);color:var(--white);
+}
+.cb-claude{
+  align-self:flex-start;
+  background:rgba(26,21,48,.9);
+  border:1px solid rgba(107,63,212,.3);color:var(--mid);
+}
+.cb-claude strong{color:var(--white)}
+.typing-dots{display:flex;gap:4px;padding:.5rem 0}
+.td{width:6px;height:6px;border-radius:50%;background:var(--violet2);animation:tdPulse 1.4s ease-in-out infinite}
+.td:nth-child(2){animation-delay:.2s}
+.td:nth-child(3){animation-delay:.4s}
+@keyframes tdPulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+
+/* ─── STATS BAND ─────────────────────── */
+#stats{
+  padding:5rem;
+  background:linear-gradient(135deg,rgba(255,107,26,.08) 0%,var(--deep3) 50%,rgba(19,136,8,.06) 100%);
+  border-top:1px solid rgba(255,107,26,.1);
+  border-bottom:1px solid rgba(19,136,8,.1);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-block{}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:4rem;line-height:1;
+  background:linear-gradient(135deg,var(--saffron),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;
+}
+.stat-lbl{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-top:.5rem;display:block}
+.stat-sublbl{font-family:'Tiro Devanagari Hindi',serif;font-size:.85rem;color:rgba(253,250,244,.2);margin-top:.2rem;display:block}
+
+/* ─── LANGUAGES ─────────────────────── */
+#languages{
+  padding:9rem 5rem;
+  background:var(--deep2);
+  position:relative;overflow:hidden;
+}
+.lang-marquee-wrap{overflow:hidden;margin:3rem -5rem}
+.lang-marquee{
+  display:flex;gap:2.5rem;width:max-content;
+  animation:marqueeScroll 30s linear infinite;
+}
+.lang-marquee:hover{animation-play-state:paused}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.lang-pill{
+  padding:.7rem 1.6rem;
+  border:1px solid rgba(240,192,64,.2);
+  border-radius:40px;
+  white-space:nowrap;
+  display:flex;align-items:center;gap:.75rem;
+  font-size:.95rem;color:var(--mid);
+  flex-shrink:0;
+  transition:border-color .3s,color .3s;
+}
+.lang-pill:hover{border-color:var(--gold);color:var(--white)}
+.lang-devanagari{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:1rem;color:var(--gold);
+}
+
+.lang-showcase{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:4rem;
+}
+.lang-card{
+  background:rgba(16,13,30,.6);
+  border:1px solid rgba(253,250,244,.07);
+  border-radius:14px;padding:2rem;
+  text-align:center;
+  transition:border-color .3s,transform .3s;
+  cursor:none;
+}
+.lang-card:hover{border-color:rgba(240,192,64,.3);transform:translateY(-6px)}
+.lang-script{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:2rem;color:var(--gold);margin-bottom:.75rem;
+  display:block;
+}
+.lang-name{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.lang-sample{font-size:.85rem;color:var(--mid);margin-top:.5rem;line-height:1.6}
+
+/* ─── VISION ─────────────────────────── */
+#vision{
+  padding:12rem 5rem;
+  background:var(--deep);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.vision-bg-circle{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(255,107,26,.06);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:vCircle var(--vc-dur,10s) linear infinite;
+}
+@keyframes vCircle{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.vc1{width:800px;height:800px;--vc-dur:60s}
+.vc2{width:600px;height:600px;--vc-dur:40s;border-color:rgba(19,136,8,.06);animation-direction:reverse}
+.vc3{width:400px;height:400px;--vc-dur:25s;border-color:rgba(107,63,212,.08)}
+
+.vision-content{position:relative;z-index:2}
+.vision-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(1.8rem,4vw,3.5rem);
+  line-height:1.25;color:var(--white);
+  max-width:800px;margin:2rem auto;
+}
+.vision-quote em{
+  font-style:normal;font-weight:700;
+  background:linear-gradient(135deg,var(--saffron),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.vision-hindi{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(1.5rem,3.5vw,2.8rem);
+  color:rgba(240,192,64,.5);
+  margin-bottom:3rem;
+  display:block;
+}
+
+/* ─── DEMO TERMINAL ─────────────────── */
+#demo{
+  padding:9rem 5rem;
+  background:var(--deep2);
+}
+.terminal{
+  background:#0d0b18;
+  border:1px solid rgba(107,63,212,.3);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 100px rgba(107,63,212,.1);
+  max-width:900px;margin:0 auto;
+}
+.terminal-bar{
+  background:rgba(26,21,48,.9);
+  padding:1rem 1.5rem;
+  display:flex;align-items:center;gap:.75rem;
+  border-bottom:1px solid rgba(107,63,212,.2);
+}
+.t-dot{width:12px;height:12px;border-radius:50%}
+.t-red{background:#ff5f56}.t-yel{background:#ffbd2e}.t-grn{background:#27c93f}
+.t-title{margin-left:auto;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.terminal-body{padding:2rem;min-height:400px}
+.t-line{
+  font-family:'DM Mono','Courier New',monospace;
+  font-size:.9rem;line-height:2;
+  animation:tLineIn .3s ease both;
+}
+@keyframes tLineIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+.t-prompt{color:var(--saffron)}
+.t-cmd{color:var(--white)}
+.t-output{color:rgba(253,250,244,.6)}
+.t-green{color:var(--green2)}
+.t-gold{color:var(--gold)}
+.t-violet{color:#a78bfa}
+.t-cursor{
+  display:inline-block;width:8px;height:16px;
+  background:var(--saffron);vertical-align:middle;
+  animation:blink .8s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ─── CTA ─────────────────────────── */
+#cta{
+  padding:12rem 5rem;
+  background:var(--deep);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(255,107,26,.1) 0%,transparent 70%);
+  animation:ctaGlow 4s ease-in-out infinite;
+}
+@keyframes ctaGlow{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.2);opacity:1}}
+
+.cta-hindi{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(2rem,5vw,4rem);
+  color:var(--gold);opacity:.6;
+  display:block;margin-bottom:1rem;
+  animation:ctaIn 1s ease both;
+  position:relative;z-index:2;
+}
+.cta-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;
+  font-size:clamp(4rem,12vw,10rem);
+  line-height:.88;text-transform:uppercase;
+  position:relative;z-index:2;
+  animation:ctaIn 1s ease .2s both;
+}
+.cta-title .line-w{
+  display:block;
+  background:linear-gradient(90deg,#fff,rgba(253,250,244,.6));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-title .line-o{
+  display:block;
+  background:linear-gradient(90deg,var(--saffron),var(--gold),var(--saffron2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-size:200% auto;
+  animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes ctaIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.cta-sub{
+  font-size:1.1rem;color:var(--mid);
+  margin:2rem auto;max-width:480px;line-height:1.8;
+  position:relative;z-index:2;
+}
+.cta-btns{
+  display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:2;margin-top:3rem;
+}
+.cta-pill{
+  padding:1.2rem 3rem;
+  font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;
+  border-radius:100px;cursor:none;
+  transition:transform .3s,box-shadow .3s;
+}
+.cp1{
+  background:linear-gradient(135deg,var(--saffron) 0%,#c94000 100%);
+  color:#fff;border:none;
+  box-shadow:0 8px 40px rgba(255,107,26,.4);
+}
+.cp1:hover{transform:translateY(-4px);box-shadow:0 16px 60px rgba(255,107,26,.5)}
+.cp2{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(253,250,244,.2);
+}
+.cp2:hover{border-color:var(--saffron);background:rgba(255,107,26,.06);transform:translateY(-4px)}
+
+/* ─── FOOTER ─────────────────────────── */
+footer{
+  padding:3rem 5rem;
+  background:var(--deep);
+  border-top:1px solid rgba(253,250,244,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1.5rem;
+}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;color:rgba(253,250,244,.3);letter-spacing:.05em;
+}
+.footer-copy{font-size:.78rem;color:rgba(253,250,244,.2);letter-spacing:.1em}
+.footer-flag{
+  display:flex;height:4px;width:80px;border-radius:2px;overflow:hidden;gap:0;
+}
+.footer-flag div{flex:1}
+
+/* ─── SCROLL REVEAL ─────────────────── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+
+/* responsive */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  #capabilities{padding:5rem 1.5rem}
+  .cap-grid{grid-template-columns:1fr}
+  #usecases{padding:5rem 1.5rem}
+  .usecase-layout{grid-template-columns:1fr}
+  .usecase-demo{display:none}
+  #stats{padding:4rem 1.5rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  #languages{padding:5rem 1.5rem}
+  .lang-showcase{grid-template-columns:repeat(2,1fr)}
+  #vision,#demo,#cta{padding:6rem 1.5rem}
+  footer{padding:2rem 1.5rem;flex-direction:column;text-align:center}
+  .hero-float-cards{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">C</div>
+    <div class="nav-logo-text">Claude <span>Sonnet</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#usecases">For India</a></li>
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#demo">Live Demo</a></li>
+  </ul>
+  <button class="nav-cta">Try Free →</button>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <!-- Mandala SVG -->
+  <div class="mandala-wrap">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(400,400)">
+        <!-- Outer petal ring -->
+        <g id="petals16">
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(22.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(45)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(67.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(90)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(112.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(135)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(157.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(180)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(202.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(225)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(247.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(270)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(292.5)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(315)"/>
+          <ellipse rx="20" ry="70" cy="-170" fill="none" stroke="#FF6B1A" stroke-width="1" transform="rotate(337.5)"/>
+        </g>
+        <!-- Middle petal ring -->
+        <g>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(30)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(60)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(90)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(120)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(150)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(180)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(210)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(240)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(270)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(300)"/>
+          <ellipse rx="14" ry="50" cy="-110" fill="none" stroke="#f0c040" stroke-width="1" transform="rotate(330)"/>
+        </g>
+        <!-- Circles -->
+        <circle r="240" fill="none" stroke="#138808" stroke-width=".5"/>
+        <circle r="200" fill="none" stroke="#FF6B1A" stroke-width=".5"/>
+        <circle r="150" fill="none" stroke="#f0c040" stroke-width=".5"/>
+        <circle r="100" fill="none" stroke="#FF6B1A" stroke-width=".5"/>
+        <circle r="60" fill="none" stroke="#138808" stroke-width=".5"/>
+        <!-- Star of lines -->
+        <line x1="0" y1="-240" x2="0" y2="240" stroke="#FF6B1A" stroke-width=".4"/>
+        <line x1="-240" y1="0" x2="240" y2="0" stroke="#FF6B1A" stroke-width=".4"/>
+        <line x1="-170" y1="-170" x2="170" y2="170" stroke="#f0c040" stroke-width=".4"/>
+        <line x1="170" y1="-170" x2="-170" y2="170" stroke="#f0c040" stroke-width=".4"/>
+        <!-- Center -->
+        <circle r="20" fill="none" stroke="#FF6B1A" stroke-width="1.5"/>
+        <circle r="8" fill="#FF6B1A"/>
+      </g>
+    </svg>
+  </div>
+  <div class="mandala-wrap2">
+    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(300,300)">
+        <circle r="280" fill="none" stroke="#6b3fd4" stroke-width=".6" stroke-dasharray="4,8"/>
+        <circle r="200" fill="none" stroke="#138808" stroke-width=".6" stroke-dasharray="2,6"/>
+        <circle r="120" fill="none" stroke="#FF6B1A" stroke-width=".6" stroke-dasharray="3,5"/>
+        <g>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(45)"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(90)"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(135)"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(180)"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(225)"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(270)"/>
+          <line x1="0" y1="-280" x2="0" y2="-120" stroke="#6b3fd4" stroke-width=".5" transform="rotate(315)"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Particle field -->
+  <div class="particles" id="ptcl"></div>
+
+  <!-- Floating stat cards -->
+  <div class="hero-float-cards">
+    <div class="fcard" style="top:22%;left:5%;--fd:7s;--fdel:0s">
+      <div class="fcard-num">200K</div>
+      <div class="fcard-label">Token Context</div>
+    </div>
+    <div class="fcard" style="top:55%;left:3%;--fd:5.5s;--fdel:1s">
+      <div class="fcard-num">22</div>
+      <div class="fcard-label">Indian Languages</div>
+    </div>
+    <div class="fcard" style="top:20%;right:4%;--fd:6s;--fdel:.5s">
+      <div class="fcard-num">&lt;1s</div>
+      <div class="fcard-label">Response Time</div>
+    </div>
+    <div class="fcard" style="top:58%;right:3%;--fd:8s;--fdel:1.5s">
+      <div class="fcard-num">99.9%</div>
+      <div class="fcard-label">Uptime SLA</div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Introducing · Claude Sonnet 4.6 · For Bharat</div>
+    <div class="hindi-headline">नमस्ते, भारत</div>
+    <h1 class="hero-title">
+      <span class="line1">MEET</span>
+      <span class="line2">CLAUDE</span>
+    </h1>
+    <p class="hero-version">Sonnet 4.6 — Anthropic's Most Intelligent Everyday Model</p>
+    <p class="hero-desc">Built for a billion minds. Claude Sonnet 4.6 brings world-class AI intelligence — fast, nuanced, multilingual — to India's developers, students, businesses and dreamers.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">Start for Free →</button>
+      <button class="btn-secondary">Watch Demo</button>
+    </div>
+  </div>
+
+  <div class="tribeam"></div>
+  <div class="scroll-cue">
+    <span class="scroll-cue-text">Scroll to explore</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════ CAPABILITIES ═══════════ -->
+<section id="capabilities">
+  <div class="cap-bg-text">POWER</div>
+  <div class="reveal">
+    <div class="sec-tag">What Claude Can Do</div>
+    <h2 class="sec-title"><span class="glow">Extraordinary</span><br>Capabilities</h2>
+    <p class="sec-intro">Sonnet 4.6 is Anthropic's smartest everyday model — designed for real-world complexity, not just benchmarks.</p>
+  </div>
+  <div class="cap-grid reveal">
+    <div class="cap-card">
+      <div class="cap-icon" style="background:rgba(255,107,26,.1)">
+        <span>🧠</span>
+        <div class="cap-icon-ring"></div>
+      </div>
+      <div class="cap-title">Deep Reasoning</div>
+      <div class="cap-body">From UPSC preparation to IIT-JEE problem sets — Claude reasons step by step through India's toughest academic challenges with clarity and depth.</div>
+      <div class="cap-hindi">गहरी सोच और विश्लेषण</div>
+      <div class="cap-stat">94.2%<br><span class="cap-stat-label">MMLU Benchmark Score</span></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon" style="background:rgba(240,192,64,.1)">
+        <span>⚡</span>
+        <div class="cap-icon-ring" style="animation-delay:.5s"></div>
+      </div>
+      <div class="cap-title">Lightning Speed</div>
+      <div class="cap-body">Optimised for real-time responsiveness. Get instant answers for customer queries, code completions, and business documents — no waiting.</div>
+      <div class="cap-hindi">तुरंत उत्तर, शून्य प्रतीक्षा</div>
+      <div class="cap-stat">3x<br><span class="cap-stat-label">Faster than Previous Generation</span></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon" style="background:rgba(19,136,8,.1)">
+        <span>🌐</span>
+        <div class="cap-icon-ring" style="animation-delay:1s"></div>
+      </div>
+      <div class="cap-title">Multilingual Mastery</div>
+      <div class="cap-body">Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati — Claude reads, writes and thinks in 22+ Indian languages with native fluency.</div>
+      <div class="cap-hindi">बाईस भारतीय भाषाएँ</div>
+      <div class="cap-stat">22+<br><span class="cap-stat-label">Indian Languages Supported</span></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon" style="background:rgba(107,63,212,.15)">
+        <span>💻</span>
+        <div class="cap-icon-ring" style="animation-delay:.3s"></div>
+      </div>
+      <div class="cap-title">Elite Coding</div>
+      <div class="cap-body">Power India's startup ecosystem. Claude writes production-grade code in 40+ languages, debugs complex stacks, and architects entire systems.</div>
+      <div class="cap-hindi">भारत के स्टार्टअप के लिए कोड</div>
+      <div class="cap-stat">72.7%<br><span class="cap-stat-label">HumanEval Code Score</span></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon" style="background:rgba(255,107,26,.1)">
+        <span>📄</span>
+        <div class="cap-icon-ring" style="animation-delay:.8s"></div>
+      </div>
+      <div class="cap-title">200K Context Window</div>
+      <div class="cap-body">Entire legal contracts, books, codebases — Claude holds up to 200,000 tokens in working memory. Perfect for India's complex regulatory documents.</div>
+      <div class="cap-hindi">विशाल दस्तावेज़ विश्लेषण</div>
+      <div class="cap-stat">200K<br><span class="cap-stat-label">Token Context Length</span></div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon" style="background:rgba(240,192,64,.1)">
+        <span>🔒</span>
+        <div class="cap-icon-ring" style="animation-delay:1.2s"></div>
+      </div>
+      <div class="cap-title">Safe & Trustworthy</div>
+      <div class="cap-body">Anthropic's Constitutional AI ensures Claude behaves ethically, refuses harmful requests, and respects India's diverse cultural values and sensitivities.</div>
+      <div class="cap-hindi">सुरक्षित और विश्वसनीय AI</div>
+      <div class="cap-stat">100%<br><span class="cap-stat-label">Built on Constitutional AI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ INDIA USE CASES ═══════════ -->
+<section id="usecases">
+  <div class="india-banner">
+    <div class="india-line"></div>
+    <div class="india-flag-strip">
+      <div class="flag-saffron"></div>
+      <div class="flag-white"></div>
+      <div class="flag-green"></div>
+    </div>
+    <div class="india-line2"></div>
+  </div>
+
+  <div class="reveal">
+    <div class="sec-tag">Made for Bharat</div>
+    <h2 class="sec-title">Transforming<br><span class="glow">India's Future</span></h2>
+  </div>
+
+  <div class="usecase-layout" style="margin-top:4rem">
+    <div class="usecase-list reveal">
+      <div class="uc-item active" onclick="setDemo(0)">
+        <div class="uc-num">01 / Education — शिक्षा</div>
+        <div class="uc-title">UPSC & JEE Preparation</div>
+        <div class="uc-sub">Personalised coaching in Hindi & English. Concept explanations, mock tests, previous year analysis for 1.5 crore students.</div>
+      </div>
+      <div class="uc-item" onclick="setDemo(1)">
+        <div class="uc-num">02 / Healthcare — स्वास्थ्य</div>
+        <div class="uc-title">Rural Health Assistance</div>
+        <div class="uc-sub">Explain medical reports in local languages. Assist ASHA workers with basic diagnosis guidance and patient communication.</div>
+      </div>
+      <div class="uc-item" onclick="setDemo(2)">
+        <div class="uc-num">03 / Agriculture — कृषि</div>
+        <div class="uc-title">Smart Farming for Kisans</div>
+        <div class="uc-sub">Soil analysis, crop disease identification, weather-based advice and government scheme navigation in 12 regional languages.</div>
+      </div>
+      <div class="uc-item" onclick="setDemo(3)">
+        <div class="uc-num">04 / Startups — स्टार्टअप</div>
+        <div class="uc-title">Bangalore to Bharat Stack</div>
+        <div class="uc-sub">Full-stack code generation, legal compliance docs, investor pitch decks, and GTM strategies for India's 100K+ startups.</div>
+      </div>
+      <div class="uc-item" onclick="setDemo(4)">
+        <div class="uc-num">05 / Finance — वित्त</div>
+        <div class="uc-title">Financial Inclusion at Scale</div>
+        <div class="uc-sub">Explain loans, insurance, SIPs in plain Hindi. Help the 400M unbanked population navigate digital financial services.</div>
+      </div>
+    </div>
+
+    <div class="usecase-demo reveal rd2">
+      <div class="demo-header">
+        <div class="demo-dot d1"></div>
+        <div class="demo-dot d2"></div>
+        <div class="demo-dot d3"></div>
+        <div class="demo-title">Claude Sonnet 4.6 · Live</div>
+      </div>
+      <div class="chat-msgs" id="chatMsgs">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-block reveal">
+      <span class="stat-n" data-target="1400000000">0</span>
+      <span class="stat-lbl">Indians Can Access Claude Today</span>
+      <span class="stat-sublbl">एक अरब से अधिक</span>
+    </div>
+    <div class="stat-block reveal rd1">
+      <span class="stat-n" data-target="22">0</span>
+      <span class="stat-lbl">Indian Languages Supported</span>
+      <span class="stat-sublbl">भाषाओं की विविधता</span>
+    </div>
+    <div class="stat-block reveal rd2">
+      <span class="stat-n" data-target="99">0</span>
+      <span class="stat-lbl">% Uptime SLA</span>
+      <span class="stat-sublbl">निरंतर उपलब्धता</span>
+    </div>
+    <div class="stat-block reveal rd3">
+      <span class="stat-n" data-target="200">0</span>
+      <span class="stat-lbl">K Token Context Window</span>
+      <span class="stat-sublbl">विशाल स्मृति</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LANGUAGES ═══════════ -->
+<section id="languages">
+  <div class="reveal">
+    <div class="sec-tag">Multilingual · बहुभाषी</div>
+    <h2 class="sec-title">Every Voice<br><span class="glow">Understood</span></h2>
+    <p class="sec-intro" style="max-width:600px">India speaks in a thousand tongues. Claude listens, understands, and responds in all of them — with nuance, not just translation.</p>
+  </div>
+
+  <div class="lang-marquee-wrap">
+    <div class="lang-marquee">
+      <div class="lang-pill"><span class="lang-devanagari">हिन्दी</span> Hindi</div>
+      <div class="lang-pill"><span class="lang-devanagari">தமிழ்</span> Tamil</div>
+      <div class="lang-pill"><span class="lang-devanagari">తెలుగు</span> Telugu</div>
+      <div class="lang-pill"><span class="lang-devanagari">বাংলা</span> Bengali</div>
+      <div class="lang-pill"><span class="lang-devanagari">मराठी</span> Marathi</div>
+      <div class="lang-pill"><span class="lang-devanagari">ગુજરાતી</span> Gujarati</div>
+      <div class="lang-pill"><span class="lang-devanagari">ಕನ್ನಡ</span> Kannada</div>
+      <div class="lang-pill"><span class="lang-devanagari">മലയാളം</span> Malayalam</div>
+      <div class="lang-pill"><span class="lang-devanagari">ਪੰਜਾਬੀ</span> Punjabi</div>
+      <div class="lang-pill"><span class="lang-devanagari">اردو</span> Urdu</div>
+      <div class="lang-pill"><span class="lang-devanagari">ଓଡ଼ିଆ</span> Odia</div>
+      <div class="lang-pill"><span class="lang-devanagari">অসমীয়া</span> Assamese</div>
+      <!-- duplicate for seamless loop -->
+      <div class="lang-pill"><span class="lang-devanagari">हिन्दी</span> Hindi</div>
+      <div class="lang-pill"><span class="lang-devanagari">தமிழ்</span> Tamil</div>
+      <div class="lang-pill"><span class="lang-devanagari">తెలుగు</span> Telugu</div>
+      <div class="lang-pill"><span class="lang-devanagari">বাংলা</span> Bengali</div>
+      <div class="lang-pill"><span class="lang-devanagari">मराठी</span> Marathi</div>
+      <div class="lang-pill"><span class="lang-devanagari">ગુજરાતી</span> Gujarati</div>
+      <div class="lang-pill"><span class="lang-devanagari">ಕನ್ನಡ</span> Kannada</div>
+      <div class="lang-pill"><span class="lang-devanagari">മലയാളം</span> Malayalam</div>
+      <div class="lang-pill"><span class="lang-devanagari">ਪੰਜਾਬੀ</span> Punjabi</div>
+      <div class="lang-pill"><span class="lang-devanagari">اردو</span> Urdu</div>
+      <div class="lang-pill"><span class="lang-devanagari">ଓଡ଼ିଆ</span> Odia</div>
+      <div class="lang-pill"><span class="lang-devanagari">অসমীয়া</span> Assamese</div>
+    </div>
+  </div>
+
+  <div class="lang-showcase reveal">
+    <div class="lang-card">
+      <span class="lang-script">नमस्ते</span>
+      <div class="lang-name">Hindi</div>
+      <div class="lang-sample">मैं आपकी पूरी तरह से मदद कर सकता हूँ</div>
+    </div>
+    <div class="lang-card">
+      <span class="lang-script">வணக்கம்</span>
+      <div class="lang-name">Tamil</div>
+      <div class="lang-sample">நான் உங்களுக்கு முழுமையாக உதவ முடியும்</div>
+    </div>
+    <div class="lang-card">
+      <span class="lang-script">నమస్కారం</span>
+      <div class="lang-name">Telugu</div>
+      <div class="lang-sample">నేను మీకు పూర్తిగా సహాయం చేయగలను</div>
+    </div>
+    <div class="lang-card">
+      <span class="lang-script">নমস্কার</span>
+      <div class="lang-name">Bengali</div>
+      <div class="lang-sample">আমি আপনাকে সম্পূর্ণরূপে সাহায্য করতে পারি</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VISION ═══════════ -->
+<section id="vision">
+  <div class="vc1 vision-bg-circle"></div>
+  <div class="vc2 vision-bg-circle"></div>
+  <div class="vc3 vision-bg-circle"></div>
+  <div class="vision-content reveal">
+    <div class="sec-tag">The Vision</div>
+    <span class="vision-hindi">भारत के हर हाथ में बुद्धिमत्ता</span>
+    <p class="vision-quote">
+      India is not just a market — it is a <em>civilisation</em>. Claude Sonnet 4.6 is built to honour that — bringing intelligence that is fast, safe, and deeply <em>human</em>.
+    </p>
+    <p style="color:var(--dim);font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;margin-top:2rem">— Anthropic's Mission for India</p>
+  </div>
+</section>
+
+<!-- ═══════════ TERMINAL DEMO ═══════════ -->
+<section id="demo">
+  <div class="reveal" style="text-align:center;margin-bottom:3rem">
+    <div class="sec-tag">Live Demo · लाइव डेमो</div>
+    <h2 class="sec-title">Watch Claude<br><span class="glow">Think in Real Time</span></h2>
+  </div>
+  <div class="terminal reveal rd1">
+    <div class="terminal-bar">
+      <div class="t-dot t-red"></div>
+      <div class="t-dot t-yel"></div>
+      <div class="t-dot t-grn"></div>
+      <div class="t-title">Claude Sonnet 4.6 API · claude-sonnet-4-20250514</div>
+    </div>
+    <div class="terminal-body" id="termBody">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="vision-content">
+    <div class="sec-tag" style="position:relative;z-index:2">Start Today · आज ही शुरू करें</div>
+    <span class="cta-hindi">आपका AI, आपकी भाषा में</span>
+    <h2 class="cta-title">
+      <span class="line-w">INDIA'S</span>
+      <span class="line-o">AI ERA</span>
+      <span class="line-w">BEGINS</span>
+    </h2>
+    <p class="cta-sub">Join millions of Indians already using Claude to learn, build, create, and grow. Free to start, powerful from day one.</p>
+    <div class="cta-btns">
+      <button class="cta-pill cp1">Try Claude Free →</button>
+      <button class="cta-pill cp2">API for Developers</button>
+    </div>
+
+    <!-- Tricolor bar -->
+    <div style="margin-top:5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;position:relative;z-index:2">
+      <div style="display:flex;height:4px;width:200px;border-radius:2px;overflow:hidden;box-shadow:0 0 30px rgba(255,107,26,.4)">
+        <div style="flex:1;background:var(--saffron)"></div>
+        <div style="flex:1;background:var(--white)"></div>
+        <div style="flex:1;background:var(--green)"></div>
+      </div>
+      <span style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.2rem;color:var(--dim);margin-top:.75rem">जय हिन्द</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Claude Sonnet 4.6 · Anthropic</div>
+  <div class="footer-copy">© 2025 Anthropic, PBC · Built with ❤️ for Bharat</div>
+  <div class="footer-flag">
+    <div class="flag-saffron"></div>
+    <div class="flag-white"></div>
+    <div class="flag-green"></div>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR
+const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animR)})();
+
+// ── PARTICLES
+(function(){
+  const wrap=document.getElementById('ptcl');
+  const colors=['#FF6B1A','#f0c040','#138808','#6b3fd4','#FF9D4D'];
+  for(let i=0;i<60;i++){
+    const d=document.createElement('div');
+    d.className='p';
+    const sz=Math.random()*3+1;
+    d.style.cssText=`
+      width:${sz}px;height:${sz}px;
+      left:${Math.random()*100}%;top:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      --po:${Math.random()*.6+.1};
+      --pd:${Math.random()*8+4}s;
+      --pdel:${Math.random()*8}s;
+      --py:${(Math.random()*60-30)}px;
+    `;
+    wrap.appendChild(d);
+  }
+})();
+
+// ── SCROLL REVEAL
+const revEls=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12});
+revEls.forEach(el=>revObs.observe(el));
+
+// ── COUNT UP
+function countUp(el,target,suffix=''){
+  let start=0;const dur=2200;const t0=performance.now();
+  const fmt=(n)=>target>=1000000?Math.round(n/1000000)+'B+':Math.round(n/1000000)>=1?Math.round(n/1000000)+'B+':Math.round(n);
+  function tick(now){
+    const p=Math.min((now-t0)/dur,1);
+    const e=1-Math.pow(1-p,4);
+    el.textContent=(target>=1000000000?fmt(target*e):(target>=1000?Math.round(target*e/1000)+'K':Math.round(target*e)))+suffix;
+    if(p<1)requestAnimationFrame(tick);
+    else el.textContent=(target>=1000000000?'1.4B+':(target>=1000?Math.round(target/1000)+'K':target))+suffix;
+  }
+  requestAnimationFrame(tick);
+}
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const t=parseInt(el.dataset.target);
+      if(!el.dataset.counted){el.dataset.counted=1;countUp(el,t)}
+    }
+  });
+},{threshold:.4});
+document.querySelectorAll('[data-target]').forEach(el=>cntObs.observe(el));
+
+// ── CHAT DEMOS
+const demos=[
+  [
+    {role:'user',text:'UPSC 2024 के लिए Modern History का सबसे important topic बताओ'},
+    {role:'claude',text:'<strong>Modern Indian History — Top Priority Topics for UPSC 2024:</strong><br><br>🔥 <strong>1857 Revolt</strong> — Causes, centres, leaders, British response<br>📜 <strong>Freedom Movement</strong> — Non-cooperation, Civil Disobedience, Quit India<br>🏛️ <strong>Constitution Drafting</strong> — Ambedkar, Constituent Assembly debates<br>🌱 <strong>Social Reforms</strong> — Ram Mohan Roy, Vivekananda, Phule<br><br>Pro tip: Focus on <em>interconnections</em> between events — the examiner rewards analytical thinking, not just dates.'},
+    {role:'user',text:'1857 के बारे में एक short note दो'},
+    {role:'claude',text:'<strong>1857 का महाविद्रोह — संक्षिप्त नोट:</strong><br><br>कारण: चर्बी वाले कारतूस, Doctrine of Lapse, आर्थिक शोषण<br>प्रमुख नेता: Mangal Pandey, Rani Lakshmibai, Bahadur Shah II<br>केंद्र: Meerut, Delhi, Kanpur, Lucknow, Jhansi<br>परिणाम: EIC का अंत, Crown शासन की शुरुआत<br><br>इसे First War of Independence क्यों कहते हैं? सभी वर्गों की भागीदारी!'}
+  ],
+  [
+    {role:'user',text:'मेरी माँ को diabetes है, क्या खाना चाहिए?'},
+    {role:'claude',text:'<strong>Diabetes के लिए आहार योजना:</strong><br><br>✅ <strong>खाएं:</strong> दलिया, brown rice, दाल, हरी सब्जियाँ, करेला, मेथी, छाछ<br><br>❌ <strong>बचें:</strong> white rice, मैदा, मिठाई, फल का रस, fried food<br><br>🕐 <strong>समय:</strong> दिन में 5-6 छोटे भोजन करें<br><br>⚠️ <em>यह सामान्य जानकारी है। कृपया अपने डॉक्टर से glycemic index के बारे में बात करें।</em>'},
+    {role:'user',text:'Blood sugar कब check करना चाहिए?'},
+    {role:'claude',text:'<strong>Blood Sugar Monitoring Schedule:</strong><br><br>🌅 <strong>सुबह खाली पेट</strong> — Fasting level (70-100 mg/dL normal)<br>🍽️ <strong>खाने के 2 घंटे बाद</strong> — Post-meal (140 mg/dL से कम)<br>🌙 <strong>सोने से पहले</strong> — Night check<br><br>HbA1c test हर 3 महीने में ज़रूरी है — यह 3 महीने का औसत बताता है।'}
+  ],
+  [
+    {role:'user',text:'Meri fasal mein patle patte ho rahe hain, kya problem hai?'},
+    {role:'claude',text:'<strong>पतले पत्ते — संभावित कारण:</strong><br><br>🟡 <strong>Nitrogen की कमी</strong> — सबसे आम कारण<br>💧 <strong>कम पानी</strong> — जड़ें कमज़ोर हो जाती हैं<br>🦠 <strong>Leaf miner कीट</strong> — पत्तों के अंदर घुस जाते हैं<br><br><strong>तुरंत करें:</strong><br>1. Urea 50 kg/acre spray करें<br>2. Drip irrigation चालू करें<br>3. Neem oil (5ml/litre) पत्तों पर छिड़कें<br><br>फसल का नाम बताएं — exact solution दूँगा।'},
+  ],
+  [
+    {role:'user',text:'Build me a React component for UPI payment integration'},
+    {role:'claude',text:`<span class="t-violet">// UPI Payment Component</span><br><span class="t-gold">import</span> { useState } <span class="t-gold">from</span> <span class="t-green">'react'</span>;<br><br><span class="t-gold">const</span> UPIPayment = ({ amount, merchantVPA }) => {<br>&nbsp;&nbsp;<span class="t-gold">const</span> [status, setStatus] = useState(<span class="t-green">'idle'</span>);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<span class="t-gold">const</span> initiatePayment = <span class="t-gold">async</span> () => {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-gold">const</span> upiLink = <span class="t-green">\`upi://pay?pa=\${merchantVPA}&am=\${amount}&cu=INR\`</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;window.location.href = upiLink;<br>&nbsp;&nbsp;};<br>&nbsp;<br>&nbsp;&nbsp;<span class="t-gold">return</span> &lt;button onClick={initiatePayment}&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Pay ₹{amount} via UPI<br>&nbsp;&nbsp;&lt;/button&gt;;<br>};<br><br><span class="t-green">// Supports PhonePe, GPay, Paytm, BHIM ✅</span>`}
+  ],
+  [
+    {role:'user',text:'SIP kya hota hai? Mujhe samjhao simple Hindi mein'},
+    {role:'claude',text:'<strong>SIP — Systematic Investment Plan 📈</strong><br><br>सोचो: हर महीने ₹500 गुल्लक में डालते हो। SIP वही है — बस mutual fund में।<br><br><strong>कैसे काम करता है?</strong><br>हर महीने auto-debit → fund units खरीदे जाते हैं → market ups-downs में average होता है<br><br><strong>उदाहरण:</strong><br>₹1000/माह × 10 साल = ₹1.2L invest<br>12% return पर = <strong>₹2.3L बनते हैं!</strong> 🎉<br><br>छोटी रकम से शुरू करें — बड़ा सपना पाएं।'},
+    {role:'user',text:'₹2000 per month se kab millionaire banega?'},
+    {role:'claude',text:'<strong>₹2000/माह से Crorepati का सफर:</strong><br><br>📊 15% average return मानकर:<br>• 20 साल = <strong>₹30 लाख</strong><br>• 25 साल = <strong>₹65 लाख</strong><br>• 30 साल = <strong>₹1.4 करोड़!</strong> 🎯<br><br>Magic formula: समय × consistency = करोड़<br><br>⚡ Amount बढ़ाते जाओ हर साल — 30 की जगह 22 साल में ही करोड़पति!'}
+  ]
+];
+
+let currentDemo=0;
+function setDemo(idx){
+  currentDemo=idx;
+  document.querySelectorAll('.uc-item').forEach((el,i)=>{
+    el.classList.toggle('active',i===idx);
+  });
+  renderDemo(demos[idx]);
+}
+
+function renderDemo(msgs){
+  const wrap=document.getElementById('chatMsgs');
+  wrap.innerHTML='';
+  let delay=0;
+  msgs.forEach((msg,i)=>{
+    delay+=i===0?200:600;
+    setTimeout(()=>{
+      // typing indicator for claude
+      if(msg.role==='claude'){
+        const typing=document.createElement('div');
+        typing.className='chat-bubble cb-claude';
+        typing.innerHTML='<div class="typing-dots"><div class="td"></div><div class="td"></div><div class="td"></div></div>';
+        wrap.appendChild(typing);
+        setTimeout(()=>{
+          typing.remove();
+          const bubble=document.createElement('div');
+          bubble.className='chat-bubble cb-claude';
+          bubble.style.animationDelay='0s';
+          bubble.innerHTML=msg.text;
+          wrap.appendChild(bubble);
+          wrap.scrollTop=wrap.scrollHeight;
+        },900);
+      } else {
+        const bubble=document.createElement('div');
+        bubble.className=`chat-bubble cb-${msg.role}`;
+        bubble.textContent=msg.text;
+        wrap.appendChild(bubble);
+        wrap.scrollTop=wrap.scrollHeight;
+      }
+    },delay);
+  });
+}
+setDemo(0);
+
+// ── TERMINAL ANIMATION
+const termLines=[
+  {delay:300, cls:'t-line', html:'<span class="t-prompt">$ </span><span class="t-cmd">claude --model claude-sonnet-4-20250514 --interactive</span>'},
+  {delay:900, cls:'t-line', html:'<span class="t-green">✓ Connected to Claude Sonnet 4.6 API</span>'},
+  {delay:1400, cls:'t-line', html:'<span class="t-output">Model: claude-sonnet-4-20250514 | Context: 200K tokens | Region: ap-south-1</span>'},
+  {delay:2000, cls:'t-line', html:''},
+  {delay:2200, cls:'t-line', html:'<span class="t-prompt">You › </span><span class="t-cmd">Explain quantum computing in Hindi for a Class 12 student</span>'},
+  {delay:2800, cls:'t-line', html:'<span class="t-violet">Claude › </span><span class="t-output">क्वांटम कंप्यूटिंग को समझते हैं...</span>'},
+  {delay:3300, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;🔬 साधारण computer: 0 या 1 (bit)</span>'},
+  {delay:3700, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;⚛️  Quantum computer: 0 और 1 एक साथ (qubit)</span>'},
+  {delay:4100, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;💡 सोचो: एक coin जो हवा में है — heads भी, tails भी</span>'},
+  {delay:4500, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;🚀 Speed: 1 crore problems एक साथ solve कर सकता है!</span>'},
+  {delay:5000, cls:'t-line', html:''},
+  {delay:5200, cls:'t-line', html:'<span class="t-prompt">You › </span><span class="t-cmd">Write a FastAPI endpoint for Aadhaar OTP verification</span>'},
+  {delay:5800, cls:'t-line', html:'<span class="t-violet">Claude › </span><span class="t-gold">from</span><span class="t-output"> fastapi import FastAPI, HTTPException</span>'},
+  {delay:6100, cls:'t-line', html:'<span class="t-gold">from</span><span class="t-output"> pydantic import BaseModel</span>'},
+  {delay:6350, cls:'t-line', html:'<span class="t-output">app = FastAPI()</span>'},
+  {delay:6600, cls:'t-line', html:''},
+  {delay:6800, cls:'t-line', html:'<span class="t-gold">@app</span><span class="t-output">.post(<span class="t-green">"/verify-aadhaar-otp"</span>)</span>'},
+  {delay:7050, cls:'t-line', html:'<span class="t-gold">async def</span><span class="t-output"> verify_otp(aadhaar: str, otp: str):</span>'},
+  {delay:7300, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;<span class="t-violet"># UIDAI API integration with rate limiting</span></span>'},
+  {delay:7550, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;response = await uidai_client.verify(aadhaar, otp)</span>'},
+  {delay:7800, cls:'t-line', html:'<span class="t-output">&nbsp;&nbsp;<span class="t-gold">return</span> {"verified": response.success, "token": response.jwt}</span>'},
+  {delay:8300, cls:'t-line', html:'<span class="t-green">✓ Code includes DPDPA-2023 compliance comments automatically</span>'},
+  {delay:9000, cls:'t-line', html:''},
+  {delay:9200, cls:'t-line', html:'<span class="t-prompt">$ </span><span class="t-cmd">_<span class="t-cursor"></span></span>'},
+];
+
+function runTerminal(){
+  const body=document.getElementById('termBody');
+  body.innerHTML='';
+  termLines.forEach(({delay,cls,html})=>{
+    setTimeout(()=>{
+      const line=document.createElement('div');
+      line.className=cls;
+      line.innerHTML=html||'&nbsp;';
+      body.appendChild(line);
+      body.scrollTop=body.scrollHeight;
+    },delay);
+  });
+}
+
+const termObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){termObs.disconnect();runTerminal();}
+},{threshold:.3});
+termObs.observe(document.getElementById('demo'));
+
+// ── PARALLAX HERO
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  const mw=document.querySelector('.mandala-wrap');
+  const mw2=document.querySelector('.mandala-wrap2');
+  if(mw)mw.style.transform=`translate(-50%,-50%) translateY(${y*.2}px)`;
+  if(mw2)mw2.style.transform=`translate(-50%,-50%) translateY(${y*.1}px)`;
+});
+
+// ── NAV scroll blur
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  if(window.scrollY>60){nav.style.backdropFilter='blur(20px)';nav.style.background='rgba(10,6,18,.9)';}
+  else{nav.style.backdropFilter='blur(0)';nav.style.background='linear-gradient(to bottom,rgba(10,6,18,.85),transparent)';}
+});
+</script>
+</body>
+</html>
