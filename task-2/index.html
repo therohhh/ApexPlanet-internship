@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApexPlanet – Task 2</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      Apex<span>Planet</span>
+      <span style="font-size:.7rem;opacity:.6;font-weight:400;">Task 2</span>
+    </div>
+
+    <nav>
+      <a href="#contact">Contact Form</a>
+      <a href="#layout">Responsive Layout</a>
+      <a href="#todo">To-Do List</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="badge">ApexPlanet Software Pvt Ltd</div>
+
+  <h1>
+    Intermediate <em>HTML, CSS</em><br>
+    & JavaScript
+  </h1>
+
+  <p>
+    Task 2 — Contact form with validation, responsive Flexbox & Grid layout,
+    and a dynamic To-Do list.
+  </p>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="section" id="contact">
+
+  <p class="section-title">
+    <span class="num">1</span>
+    Contact Form
+  </p>
+
+  <div class="card">
+
+    <div id="form-wrapper">
+
+      <form id="contact-form" novalidate>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="John">
+            <span class="err-msg" id="fname-err"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder="Doe">
+            <span class="err-msg" id="lname-err"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="john@example.com">
+            <span class="err-msg" id="email-err"></span>
+          </div>
+
+          <div class="form-group full">
+            <label>Message</label>
+            <textarea id="message"></textarea>
+            <span class="err-msg" id="message-err"></span>
+          </div>
+
+          <div class="form-group full">
+            <button type="submit" class="btn">Send Message</button>
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- TODO SECTION -->
+
+<div class="section" id="todo">
+
+  <p class="section-title">
+    <span class="num">2</span>
+    Dynamic To-Do List
+  </p>
+
+  <div class="card">
+
+    <div class="todo-header">
+
+      <input type="text" id="todo-input" placeholder="Add a new task">
+
+      <button class="btn" onclick="addTodo()">
+        Add
+      </button>
+
+    </div>
+
+    <ul id="todo-list"></ul>
+
+    <p class="todo-stats" id="todo-stats"></p>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
