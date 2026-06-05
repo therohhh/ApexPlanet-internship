@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: teal;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Carousel */
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.carousel img {
+    width: 700px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.carousel button {
+    padding: 12px 18px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Joke */
+
+.joke-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#joke {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#jokeBtn {
+    padding: 10px 20px;
+    border: none;
+    background: teal;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    #joke {
+        font-size: 18px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .carousel {
+        flex-direction: column;
+    }
+
+    .carousel button {
+        width: 80px;
+    }
+
+    #joke {
+        font-size: 16px;
+    }
+}
