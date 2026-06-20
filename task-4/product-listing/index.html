@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Rohith</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">R. Shop</a>
+    <div class="header-right">
+      <span id="result-count" class="result-count">0 products</span>
+    </div>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR FILTERS -->
+  <aside class="filters-panel">
+
+    <div class="filter-block">
+      <p class="filter-heading">Category</p>
+      <div class="filter-options" id="category-filters">
+        <label class="filter-opt">
+          <input type="radio" name="category" value="all" checked /> All
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="category" value="electronics" /> Electronics
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="category" value="clothing" /> Clothing
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="category" value="books" /> Books
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="category" value="home" /> Home
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="category" value="fitness" /> Fitness
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-block">
+      <p class="filter-heading">Price Range</p>
+      <div class="price-range">
+        <div class="price-inputs">
+          <div class="price-field">
+            <label class="field-label">Min</label>
+            <input type="number" id="price-min" class="price-input" value="0" min="0" />
+          </div>
+          <div class="price-sep">—</div>
+          <div class="price-field">
+            <label class="field-label">Max</label>
+            <input type="number" id="price-max" class="price-input" value="1000" min="0" />
+          </div>
+        </div>
+        <input type="range" id="price-slider" class="slider" min="0" max="1000" value="1000" />
+        <div class="slider-labels">
+          <span>₹0</span><span id="slider-val">₹1000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-block">
+      <p class="filter-heading">Min Rating</p>
+      <div class="rating-filter" id="rating-filter">
+        <button class="rating-btn active" data-rating="0">All</button>
+        <button class="rating-btn" data-rating="3">3★ +</button>
+        <button class="rating-btn" data-rating="4">4★ +</button>
+        <button class="rating-btn" data-rating="4.5">4.5★ +</button>
+      </div>
+    </div>
+
+    <div class="filter-block">
+      <p class="filter-heading">Sort By</p>
+      <div class="filter-options">
+        <label class="filter-opt">
+          <input type="radio" name="sort" value="default" checked /> Default
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="sort" value="rating-desc" /> Rating: High → Low
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="sort" value="rating-asc" /> Rating: Low → High
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="sort" value="price-asc" /> Price: Low → High
+        </label>
+        <label class="filter-opt">
+          <input type="radio" name="sort" value="price-desc" /> Price: High → Low
+        </label>
+      </div>
+    </div>
+
+    <button class="reset-btn" id="reset-btn">Reset Filters</button>
+
+  </aside>
+
+  <!-- PRODUCT GRID -->
+  <div class="main-content">
+
+    <!-- Mobile filter toggle -->
+    <div class="mobile-bar">
+      <button class="mobile-filter-btn" id="mobile-filter-btn">⊞ Filters</button>
+      <select class="mobile-sort" id="mobile-sort">
+        <option value="default">Sort: Default</option>
+        <option value="rating-desc">Rating: High → Low</option>
+        <option value="rating-asc">Rating: Low → High</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <!-- Rendered by JS -->
+    </div>
+
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <p class="empty-icon">◇</p>
+      <p class="empty-title">No products found</p>
+      <p class="empty-sub">Try adjusting your filters.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- MOBILE FILTER DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="filter-drawer" id="filter-drawer">
+  <div class="drawer-header">
+    <span>Filters</span>
+    <button class="drawer-close" id="drawer-close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawer-body">
+    <!-- cloned from sidebar on open -->
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Rohith</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">R.</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section style="padding-top: 8rem;">
+    <p class="section-label">Get in touch</p>
+    <h1 class="section-heading">Let's build<br>something.</h1>
+  </section>
+
+  <section>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>
+          I'm open to freelance work, collaborations, and interesting projects. 
+          If you have something in mind — or just want to talk design and code — reach out.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:rohith@example.com" class="contact-link">
+            rohith@example.com <span>Email →</span>
+          </a>
+          <a href="https://github.com" target="_blank" class="contact-link">
+            github.com/rohith <span>GitHub →</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-link">
+            linkedin.com/in/rohith <span>LinkedIn →</span>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="contact-link">
+            @rohith <span>Twitter →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="What's on your mind?"></textarea>
+        </div>
+        <div class="form-submit">
+          <button class="btn-primary" id="send-btn" type="button">Send message</button>
+        </div>
+        <p id="form-feedback" style="font-size:0.8rem; color: var(--green); display:none;">Message sent! I'll get back to you soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Rohith</span>
+    <span>Built with HTML · CSS · JS</span>
+  </footer>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

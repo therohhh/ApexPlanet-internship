@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes — Rohith</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h1>R. Notes</h1>
+    <p id="sidebar-count">0 items</p>
+  </div>
+
+  <div class="tab-row">
+    <button class="tab-btn active" data-tab="todo" id="tab-todo">To-Do</button>
+    <button class="tab-btn" data-tab="notes" id="tab-notes">Notes</button>
+  </div>
+
+  <div class="filter-row" id="todo-filters">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="active">Active</button>
+    <button class="filter-chip" data-filter="done">Done</button>
+    <button class="filter-chip" data-filter="high">High</button>
+  </div>
+
+  <div class="filter-row" id="note-filters" style="display:none;">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="work">Work</button>
+    <button class="filter-chip" data-filter="personal">Personal</button>
+    <button class="filter-chip" data-filter="ideas">Ideas</button>
+  </div>
+
+  <div class="item-list" id="item-list">
+    <div class="empty-state">Nothing here yet.<br>Add your first item.</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main>
+  <div class="main-header">
+    <div class="main-header-left">
+      <h2 id="panel-title">Select an item</h2>
+      <p id="panel-sub">Or create a new one</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-primary" id="new-btn">+ New</button>
+      <button class="btn btn-danger" id="delete-btn" style="display:none;">Delete</button>
+    </div>
+  </div>
+
+  <div class="editor-area" id="editor-area">
+    <div class="welcome">
+      <div class="welcome-icon">✦</div>
+      <h3>Nothing selected</h3>
+      <p>Pick an item from the sidebar<br>or create something new.</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num" id="stat-total">0</span><span class="stat-label">Total</span></div>
+    <div class="stat"><span class="stat-num" id="stat-done">0</span><span class="stat-label">Done</span></div>
+    <div class="stat"><span class="stat-num" id="stat-notes-count">0</span><span class="stat-label">Notes</span></div>
+  </div>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

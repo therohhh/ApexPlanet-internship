@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohith — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">R.</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section class="hero">
+    <p class="hero-eyebrow">Frontend Developer — Based in India</p>
+    <h1 class="hero-name">
+      Rohith
+      <span>Builds things.</span>
+    </h1>
+    <p class="hero-bio">
+      I design and build web experiences that are fast, focused, and intentional.
+      From editorial UIs to full-stack apps — I care about how things look and how they work.
+    </p>
+    <div class="hero-cta">
+      <a href="projects.html" class="btn-primary">View Work</a>
+      <a href="contact.html" class="btn-ghost">Get in touch →</a>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">What I do</p>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 2px;">
+      <div style="padding: 2rem; border: 1px solid #1e1e1e;">
+        <p style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; margin-bottom:0.75rem; color:var(--off-white);">UI Development</p>
+        <p style="color:var(--muted); font-size:0.9rem; line-height:1.7;">React, CSS Modules, MUI — building interfaces that feel precise and polished.</p>
+      </div>
+      <div style="padding: 2rem; border: 1px solid #1e1e1e;">
+        <p style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; margin-bottom:0.75rem; color:var(--off-white);">Full-Stack Apps</p>
+        <p style="color:var(--muted); font-size:0.9rem; line-height:1.7;">MERN stack — MongoDB, Express, React, Node. From schema to screen.</p>
+      </div>
+      <div style="padding: 2rem; border: 1px solid #1e1e1e;">
+        <p style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; margin-bottom:0.75rem; color:var(--off-white);">Design Systems</p>
+        <p style="color:var(--muted); font-size:0.9rem; line-height:1.7;">Typography-first, editorial aesthetics. Dark, clean, and intentional.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Rohith</span>
+    <span>Built with HTML · CSS · JS</span>
+  </footer>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
