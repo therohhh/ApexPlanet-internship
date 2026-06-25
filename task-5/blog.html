@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs | TechVerse</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <h2>TechVerse</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="blog.html">Blogs</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+        <button id="themeToggle" class="theme-btn">🌙</button>
+
+        <button id="menuBtn" class="menu-btn">
+            ☰
+        </button>
+    </div>
+    </nav>
+
+</header>
+
+<section class="blog-header">
+
+    <h1>Latest Articles</h1>
+
+    <p>Discover tutorials, tips and technology news.</p>
+
+</section>
+
+<section class="search-section">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search blogs..."
+    >
+
+</section>
+
+<section class="categories">
+
+    <button class="category-btn active-btn" data-category="All">All</button>
+
+    <button class="category-btn" data-category="HTML">HTML</button>
+
+    <button class="category-btn" data-category="CSS">CSS</button>
+
+    <button class="category-btn" data-category="JavaScript">JavaScript</button>
+
+    <button class="category-btn" data-category="AI">AI</button>
+
+    <button class="category-btn" data-category="Career">Career</button>
+
+    <button class="category-btn" data-category="Tools">Tools</button>
+
+</section>
+
+<section class="featured">
+
+    <div class="blog-container" id="blogContainer">
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 TechVerse Blog | Made by Rohhh</p>
+
+</footer>
+
+<script src="js/blogs.js"></script>
+<script src="js/blog.js"></script>
+<script src="js/darkmode.js"></script>
+</body>
+</html>
